@@ -1,0 +1,20 @@
+{
+  "name": "user-manager",
+  "version": "1.0.0",
+  "description": "User management console app",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "pkg . --target node18-win-x64 --output user-manager.exe"
+  },
+  "pkg": {
+    "assets": [
+      "functions.js",
+      "classes.js"
+    ]
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  }
+}
