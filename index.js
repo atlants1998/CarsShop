@@ -1,5 +1,6 @@
 import { askQuestion, closeRl } from './functions.js';
-import { Car,Person } from './classes.js';
+import { Car, Person } from './classes.js';
+import fs from "fs";
 
 let users = [];
 let cars = [];
@@ -13,6 +14,7 @@ async function options() {
         2 - display all users
         3 - add New Car
         4 - List Cars
+        10- Save & Exit
         Enter Option: `);
     return choise;
 }
@@ -22,6 +24,29 @@ async function addNewUser() {
     const age = await askQuestion('what age? : ');
     users.push(new Person(name, age));
 }
+
+function SaveToFile(json_data) {
+    fs.writeFile('./data.json', json_data, (err, data) => {
+        if (err) {
+            console.log('error from write file');
+        } else {
+            console.log('All ok');
+        }
+    });
+}
+
+
+function ReadFromFile() {
+    let file_data = fs.readFileSync('./data.json', 'utf8');
+    console.log('Data File ok');
+    const parsed = JSON.parse(file_data);
+    parsed.forEach((element) => {
+        let car = new Car(element.car_manufacturers, element.car_model, element.car_price, element.car_tech);
+        cars.push(car);
+    });
+
+}
+
 
 async function addNewCar() {
     const manufacturers = await askQuestion('what manufacturers? : ');
@@ -56,6 +81,9 @@ async function main() {
             console.log(`Car id : ${index} || ${element.info()}`);
         });
         await main();
+    } else if (user_option == 10) {
+        let json_data = JSON.stringify(cars);
+        SaveToFile(json_data);
     } else {
         console.warn('N/A Option');
         await main();
@@ -63,7 +91,9 @@ async function main() {
 
     //closeRl(); // نقفل بعد ما نخلص
 }
+ReadFromFile();
 
 main().finally(() => {
+    console.log('exting the app');
     closeRl();
 });

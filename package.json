@@ -1,6 +1,7 @@
 {
   "name": "user-manager",
   "version": "1.0.0",
+  "type": "module",
   "description": "User management console app",
   "main": "index.js",
   "bin": "index.js",

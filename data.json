@@ -1,14 +1,1 @@
-[
-    {
-        "car_manufacturers": "bmw",
-        "car_model": "x6",
-        "car_price": "3000000",
-        "car_tech": "GAS"
-    },
-    {
-        "car_manufacturers": "tesla",
-        "car_model": "Model 3",
-        "car_price": "5000000",
-        "car_tech": "EV"
-    }
-]
+[{"car_manufacturers":"bmw","car_model":"x6","car_price":"3000000","car_tech":"GAS"},{"car_manufacturers":"tesla","car_model":"Model 3","car_price":"5000000","car_tech":"EV"},{"car_manufacturers":"audi","car_model":"R8","car_price":"5000000","car_tech":"GAS"}]
