@@ -20,13 +20,11 @@ export class Car {
     car_price = '';
     car_tech = '';
 
-
     constructor(manufacturers, model, price, tech) {
         this.car_manufacturers = manufacturers;
         this.car_model = model;
         this.car_price = price;
         this.car_tech = tech;
-
     }
 
     info = function () {

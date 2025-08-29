@@ -1,4 +1,10 @@
 ******** MAIN APP ********
+* Make the app work with CLI ✅
+* Make the app work with API 
+    - the api should have the same options as actions like [ ?action=[CRUD] ]
+    - after actions it starts to find what it needs in the url like [Name, Brand, Color, Tech, Price]
+
+===========
 1- When Program starts > show [options](main page)
 2- The [options] is `CRUD` (Create, Read, Update, Delete)
 3- Create makes new instance  from Car Object
@@ -13,11 +19,12 @@
 
 #    test to do and learn    # 
 diffrent between array [] and rest parameter ...nums ✅
-make code more simple
-saperate most files as possible
+make code more simple ✅
+saperate most files as possible ✅
 try CJS - then delete it ✅
-use ESM (can`t use CJS with ESM pakage )
-make executable files for [win-linux]
+use ESM (can`t use CJS with ESM pakage ) ✅
+make executable files for [win-linux]: (Bulding executable files works well with CJS but in ESM makes errors)
 ++++++
 - make functions file
     that contain most used functions like read answer from the user
+*

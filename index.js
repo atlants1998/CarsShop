@@ -1,13 +1,27 @@
 import { askQuestion, closeRl } from './functions.js';
 import { Car, Person } from './classes.js';
+import { urlSplitter,httpserver } from './http_server_functions.js';
+
 import fs from "fs";
+import http from "http";
 
 let users = [];
 let cars = [];
 
+
+/* HTTP SERVER */
+
+const server = http.createServer(httpserver(users,cars));
+
+server.listen(8000, () => {
+    console.log('server started port: 8000');
+});
+/* END HTTP SERVER */
+
+
 //console.log(`users found : ${[...users]}`);
 
-async function options() {
+/* async function options() {
     const choise = await askQuestion(
         `
         1 - add user
@@ -17,13 +31,13 @@ async function options() {
         10- Save & Exit
         Enter Option: `);
     return choise;
-}
+} */
 
-async function addNewUser() {
+/* async function addNewUser() {
     const name = await askQuestion('what name? : ');
     const age = await askQuestion('what age? : ');
     users.push(new Person(name, age));
-}
+} */
 
 function SaveToFile(json_data) {
     fs.writeFile('./data.json', json_data, (err, data) => {
@@ -44,19 +58,18 @@ function ReadFromFile() {
         let car = new Car(element.car_manufacturers, element.car_model, element.car_price, element.car_tech);
         cars.push(car);
     });
-
 }
 
 
-async function addNewCar() {
+/* async function addNewCar() {
     const manufacturers = await askQuestion('what manufacturers? : ');
     const model = await askQuestion('what Model? : ');
     const price = await askQuestion('what Price? : ');
     const tech = await askQuestion('what Tech? [EV,GAS]: ');
     cars.push(new Car(manufacturers, model, price, tech));
 }
-
-async function main() {
+ */
+/* async function main() {
     let user_option = await options();
 
     if (user_option == 1) {
@@ -91,9 +104,12 @@ async function main() {
 
     //closeRl(); // نقفل بعد ما نخلص
 }
+ */
+
 ReadFromFile();
 
-main().finally(() => {
+/* main().finally(() => {
     console.log('exting the app');
     closeRl();
 });
+ */
